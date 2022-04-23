@@ -2,7 +2,7 @@
 
 # Dev Blog
 
-Dev Blog is a local development blog for developers. Simply add the blog to your working repository, write your posts as Markdown files, and view your development history through the local interface. With Dev Blog you can create local and organized documentation of your development process and descision-making for any project.
+Dev Blog is a local development blog for developers. Simply add the blog to your working repository, write your posts as Markdown files, and view your development history through the local interface. With Dev Blog you can create local and organized documentation of your development process and decision-making for any project.
 
 ## Features
 
