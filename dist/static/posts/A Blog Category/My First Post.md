@@ -15,5 +15,5 @@ A simple way of organizing your posts by date is to place each post in a categor
 If you want to link local content in your post, you can place the content file anywhere in the `static/` directory and reference it in your markdown file. Here's an example of adding an image to your post:
 
 1. Add the image file (cats.png) to the static directory at `static/cats.png`
-2. Reference it in your markdown like so: `[!Cats](/cats.png)`
+2. Reference it in your markdown like so: `![Cats](/cats.png)`
 3. View it in your post!
