@@ -1,0 +1,33 @@
+html,body {
+  font-family: ubuntu, sans-serif;
+}
+
+body {
+  margin: auto;
+  padding: 2rem 1rem;
+  max-width: 1024px;
+  line-height: 1.5;
+  transition: all 1s ease-in-out;
+}
+
+h1 {
+  text-decoration: underline;
+}
+
+h3, h5 {
+  color: #888;
+}
+
+img {
+  max-width: 100%;
+}
+
+a, .anchor {
+  color: dodgerblue;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+a:visited {
+  color: violet;
+}

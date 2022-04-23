@@ -1,0 +1,26 @@
+{
+  "name": "create-dev-blog",
+  "version": "1.0.0",
+  "description": "Initializes a new dev-blog project",
+  "main": "bin.js",
+  "bin": "./bin.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/midpoint68/dev-blog.git"
+  },
+  "keywords": [
+    "documentation",
+    "blog",
+    "productivity"
+  ],
+  "author": "Trevor Richard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/midpoint68/dev-blog/issues"
+  },
+  "homepage": "https://github.com/midpoint68/dev-blog#readme",
+  "type": "module"
+}
