@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { exit } from 'process';
 import { createInterface } from 'readline';
+import { fileURLToPath } from 'url';
 
 const readline = createInterface({
   input: process.stdin,
@@ -40,6 +41,10 @@ function copyRec(from, to, replacements) {
   }
 }
 
+function dist() {
+	return fileURLToPath(new URL(`./dist`, import.meta.url).href);
+}
+
 readline.question(`What is the title of your blog? `, title => {
 
   const cwd = process.argv[2] || '.';
@@ -55,7 +60,7 @@ readline.question(`What is the title of your blog? `, title => {
   mkdir(cwd);
 
   // Copy files from dist and replace placeholder values
-  copyRec("./dist", cwd, new Map([
+  copyRec(dist(), cwd, new Map([
     ["config.ts", [{ regex: /\%blogName\%/, value: title || "Dev Blog" }]]
   ]));
 
