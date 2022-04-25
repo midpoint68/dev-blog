@@ -19,10 +19,14 @@ function mkdir(dir) {
   }
 }
 
-function copyRec(from, to, replacements) {
+function copyRec(from, to, replacements, nameChanges) {
   if(fs.statSync(from).isDirectory()) {
     for(const file of fs.readdirSync(from)) {
-      copyRec(path.join(from, file), path.join(to, file), replacements);
+      let destFile = file;
+      for(const change of nameChanges) {
+       destFile = destFile.replace(change.regex, change.value);
+      }
+      copyRec(path.join(from, file), path.join(to, destFile), replacements, nameChanges);
     }
   } else {
     const dirname = path.dirname(to);
@@ -60,9 +64,14 @@ readline.question(`What is the title of your blog? `, title => {
   mkdir(cwd);
 
   // Copy files from dist and replace placeholder values
-  copyRec(dist(), cwd, new Map([
-    ["config.ts", [{ regex: /\%blogName\%/, value: title || "Dev Blog" }]]
-  ]));
+  copyRec(dist(), cwd,
+    new Map([
+      ["config.ts", [{ regex: /\%blogName\%/, value: title || "Dev Blog" }]]
+    ]),
+    [
+      { regex: /DOT\-/, value: "." }
+    ]
+  );
 
   console.log("Done!\n\nNext steps:\n\n1) run `npm install` in the project directory\n2) start the development server with `npm start`");
 
