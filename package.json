@@ -1,6 +1,6 @@
 {
   "name": "create-dev-blog",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Initializes a new dev-blog project",
   "main": "bin.js",
   "bin": "./bin.js",
