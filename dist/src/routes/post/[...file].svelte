@@ -1,7 +1,7 @@
 <script type="ts">
   import { marked } from 'marked';
   import axios from "axios";
-import config from '$lib/config';
+  import config from '$lib/config';
 
   export let file: string;
 
@@ -15,7 +15,7 @@ import config from '$lib/config';
       const parts = file.split("/");
       category = parts.length > 1 ? parts[0] : 'Root';
       title = `${parts[1]}`;
-      const url = `/posts/${file}.md`;
+      const url = encodeURI(`/posts/${file}.md`);
       const md = (await axios.get(url)).data;
       marked(md, (err: any, res: string) => {
         if(err) {
