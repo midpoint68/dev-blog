@@ -1,37 +1,18 @@
 <script type="ts">
-import config from "$lib/config";
-
-  import { onMount } from "svelte";
-
-  let night = false;
-  onMount(() => {
-    night = !!localStorage.getItem("night-theme");
-  });
-
-  const toggleNight = () => {
-    night = !night;
-    if(night) localStorage.setItem("night-theme", "true");
-    else localStorage.removeItem("night-theme");
-  };
+  import config from "$lib/config";
 </script>
-
-<svelte:head>
-  {#if night}
-    <style>
-      body {
-        background-color: #333;
-        color: #eee;
-      }
-    </style>
-  {/if}
-</svelte:head>
 
 <header>
   <div class="left">
-    <img class="icon" src="/icon.svg" alt="Dev Blog">
+    <a href="https://github.com/midpoint68/dev-blog">
+      <img class="icon" src="/icon.svg" alt="Dev Blog" name="Dev Blog">
+    </a>
     <h1>{config.name}</h1>
   </div>
-  <span class="anchor" on:click={toggleNight}>{night ? 'day' : 'night'}</span>
+  <span class="anchor" on:click={() => {toggleTheme(undefined);}}>
+    <span id="light-theme-name">light</span>
+    <span id="dark-theme-name">dark</span>
+  </span>
 </header>
 
 <slot></slot>

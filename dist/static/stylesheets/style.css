@@ -1,5 +1,7 @@
 html,body {
   font-family: ubuntu, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--color);
 }
 
 body {
@@ -7,7 +9,6 @@ body {
   padding: 2rem 1rem;
   max-width: 1024px;
   line-height: 1.5;
-  transition: all 1s ease-in-out;
 }
 
 h1 {
@@ -23,11 +24,67 @@ img {
 }
 
 a, .anchor {
-  color: dodgerblue;
+  color: var(--anchor-color);
   text-decoration: underline;
   cursor: pointer;
 }
 
 a:visited {
-  color: violet;
+  color: var(--anchor-visited-color);
+}
+
+/* Light Theme Preferred */
+@media(prefers-color-scheme: light) {
+  #light-theme-name {
+    display: none;
+  }
+
+  :root {
+    --color: #222;
+    --bg-color: #fff;
+    --anchor-color: dodgerblue;
+    --anchor-visited-color: fuchsia;
+  }
+}
+
+/* Dark Theme Preferred */
+@media(prefers-color-scheme: dark) {
+  #dark-theme-name {
+    display: none;
+  }
+
+  :root {
+    --color: #eee;
+    --bg-color: #333;
+    --anchor-color: lightblue;
+    --anchor-visited-color: lightgreen;
+  }
+}
+
+/* Light Theme Forced */
+.light #light-theme-name {
+  display: none;
+}
+.light #dark-theme-name {
+  display: initial;
+}
+.light {
+  --color: #222;
+  --bg-color: #fff;
+  --anchor-color: dodgerblue;
+  --anchor-visited-color: fuchsia;
+}
+
+/* Dark Theme Forced */
+.dark #dark-theme-name {
+  display: none;
+}
+.dark #light-theme-name {
+  display: initial;
+}
+.dark {
+  --color: #eee;
+  --bg-color: #333;
+  --anchor-color: lightblue;
+  --anchor-visited-color: lightgreen;
 }
