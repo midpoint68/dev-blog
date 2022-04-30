@@ -2,6 +2,8 @@
   import { marked } from 'marked';
   import axios from "axios";
   import config from '$lib/config';
+  import hljs from "highlight.js";
+  import { tick } from "svelte";
 
   export let file: string;
 
@@ -21,7 +23,11 @@
         if(err) {
           console.error(err);
         } else {
+          // Set new page content
           html = res;
+
+          // Highlight code blocks
+          tick().then(hljs.highlightAll);
         }
       });
     } catch (err) {

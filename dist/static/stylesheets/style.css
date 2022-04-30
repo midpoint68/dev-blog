@@ -33,17 +33,29 @@ a:visited {
   color: var(--anchor-visited-color);
 }
 
+#content :not(pre) > code {
+  background-color: var(--code-bg-color);
+  padding: 3px;
+  border-radius: 3px;
+}
+
 /* Light Theme Preferred */
+:root {
+  --color: #222;
+  --bg-color: #fff;
+  --code-bg-color: #f4f4f4;
+  --anchor-color: dodgerblue;
+  --anchor-visited-color: fuchsia;
+
+  --hljs: #222;
+  --hljs-bg: #f4f4f4;
+  --hljs-selector-tag: fuchsia;
+  --hljs-variable: dodgerblue;
+  --hljs-quote: #888;
+}
 @media(prefers-color-scheme: light) {
   #light-theme-name {
     display: none;
-  }
-
-  :root {
-    --color: #222;
-    --bg-color: #fff;
-    --anchor-color: dodgerblue;
-    --anchor-visited-color: fuchsia;
   }
 }
 
@@ -53,11 +65,18 @@ a:visited {
     display: none;
   }
 
-  :root {
+  :not(.light):root {
     --color: #eee;
     --bg-color: #333;
+    --code-bg-color: #444;
     --anchor-color: lightblue;
     --anchor-visited-color: lightgreen;
+
+    --hljs: #ddd;
+    --hljs-bg: #444;
+    --hljs-selector-tag: lightblue;
+    --hljs-variable: lightgreen;
+    --hljs-quote: #979797;
   }
 }
 
@@ -67,12 +86,6 @@ a:visited {
 }
 .light #dark-theme-name {
   display: initial;
-}
-.light {
-  --color: #222;
-  --bg-color: #fff;
-  --anchor-color: dodgerblue;
-  --anchor-visited-color: fuchsia;
 }
 
 /* Dark Theme Forced */
@@ -85,6 +98,16 @@ a:visited {
 .dark {
   --color: #eee;
   --bg-color: #333;
+  --code-bg-color: #444;
   --anchor-color: lightblue;
   --anchor-visited-color: lightgreen;
+
+  --hljs: #ddd;
+  --hljs-bg: #444;
+  --hljs-selector-tag: lightblue;
+  --hljs-variable: lightgreen;
+  --hljs-quote: #979797;
 }
+
+/* hljs styles */
+pre code.hljs{display:block;overflow-x:auto;padding:1em;border-radius:0.5rem;}code.hljs{padding:3px 5px}.hljs{color:var(--hljs);background:var(--hljs-bg)}.hljs-keyword,.hljs-link,.hljs-literal,.hljs-section,.hljs-selector-tag{color:var(--hljs-selector-tag)}.hljs-addition,.hljs-attribute,.hljs-built_in,.hljs-bullet,.hljs-name,.hljs-string,.hljs-symbol,.hljs-template-tag,.hljs-template-variable,.hljs-title,.hljs-type,.hljs-variable{color:var(--hljs-variable)}.hljs-comment,.hljs-deletion,.hljs-meta,.hljs-quote{color:var(--hljs-quote)}.hljs-doctag,.hljs-keyword,.hljs-literal,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-strong,.hljs-title,.hljs-type{font-weight:700}.hljs-emphasis{font-style:italic}

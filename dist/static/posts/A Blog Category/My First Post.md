@@ -17,3 +17,52 @@ If you want to link local content in your post, you can place the content file a
 1. Add the image file (cats.png) to the static directory at `static/cats.png`
 2. Reference it in your markdown like so: `![Cats](/cats.png)`
 3. View it in your post!
+
+### Code Blocks
+
+Dev Blog uses [highlight.js](https://highlightjs.org/) to style code blocks based on the language you specify. For example, to create an HTML code block, use the following format:
+
+##### Source
+````plaintext
+```html
+<!-- Comment -->
+<div id="my-div">
+  This HTML code is styled!
+</div>
+```
+````
+
+##### Result
+```html
+<!-- Comment -->
+<div id="my-div">
+  This HTML code is styled!
+</div>
+```
+
+Likewise, to create a TypeScript code block, you can do the following:
+
+##### Source
+````plaintext
+```ts
+// Comment
+interface SomeInterface {
+  name: string
+  type: number
+}
+```
+````
+
+##### Result
+```ts
+// Comment
+interface SomeInterface {
+  name: string
+  type: number
+}
+```
+
+Here is the full list of supported languages:
+```plaintext
+Bash, C, C#, C++, CSS, Diff, Go, HTML,, XML, JSON, Java, JavaScript, Kotlin, Less, Lua, Makefile, Markdown, Objective-C, PHP, PHP, Template, Perl, Plain text, Python, Python, REPL, R, Ruby, Rust, SCSS, SQL, Shell, Session, Swift, TOML (also INI), TypeScript, Visual, Basic, .NET, YAML
+```
